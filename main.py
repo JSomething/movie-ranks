@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
@@ -41,14 +43,11 @@ with app.app_context():
 
 
 MOVIE_DB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
-MOVIE_DB_API_KEY = "1306d79b637d1c6b782418cf6a2d6f95"
+MOVIE_DB_API_KEY = 'MOVIE_DB_API' in os.environ
 MOVIE_DB_IMG_URL = "https://image.tmdb.org/t/p/w500"
 MOVIE_DB_INFO_URL = "https://api.themoviedb.org/3/movie"
 
-# headers = {
-#     "accept": "application/json",
-#     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzA2ZDc5YjYzN2QxYzZiNzgyNDE4Y2Y2YTJkNmY5NSIsInN1YiI6IjY0YWM1Yjc4NjZhMGQzMDEzYTczYWE3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4VN9KRAuzKX9wbRQJ8sfVrs7zMREpz6MGUAVuM-RiwU"
-# }
+
 
 @app.route("/")
 def home():
